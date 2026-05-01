@@ -1,126 +1,80 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "NTSB FOIA MU5735",
+  "theme": "willow",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#1B3A5C",
+    "light": "#4A7FB5",
+    "dark": "#0D1F33"
   },
-  "favicon": "/favicon.svg",
+  "navbar": {
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/wrongly-cuddly-obsession/NTSB_FOIA_MU5735"
+    }
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/wrongly-cuddly-obsession/NTSB_FOIA_MU5735"
+    }
+  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Overview",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Introduction",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "introduction",
+              "about-mu5735",
+              "foia-background"
             ]
           },
           {
-            "group": "Customization",
+            "group": "FOIA Documents",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/components",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "Agent ready",
-            "pages": [
-              "agent-ready/prompt",
-              "agent-ready/visibility",
-              "agent-ready/contextual",
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "documents/overview",
+              "documents/foia-reports",
+              "documents/response-letters"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Recorder Data",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Flight Recorder Report",
             "pages": [
-              "api-reference/introduction"
+              "recorder/overview",
+              "recorder/cvr-recovery",
+              "recorder/fdr-recovery",
+              "recorder/audio-quality"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Flight Data",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "data/fdr-parameters",
+              "data/exact-sample",
+              "data/table-resolution"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Chinese Translation",
+        "groups": [
+          {
+            "group": "译文说明",
+            "pages": [
+              "cn/introduction",
+              "cn/recorder-report"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+    ]
   }
 }

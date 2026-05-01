@@ -1,0 +1,45 @@
+---
+title: "CVR Audio Quality Rating Scale"
+description: "NTSB's five-tier audio quality rating scale for CVR recordings, from Excellent to Unusable, with criteria for each tier and MU5735 final results."
+---
+
+The NTSB uses a standardized five-tier rating scale to classify the quality of cockpit voice recorder audio. Ratings are assigned based on how much crew speech is intelligible, what causes any unintelligible portions, and whether a meaningful transcript can be produced. The scale ranges from Excellent — where nearly all speech is understood and only one or two words are unintelligible — to Unusable, where crew speech is detectable but no meaningful transcript is possible regardless of the techniques applied.
+
+<Tip>
+  The audio quality scale is defined in NTSB procedures and applied consistently across all CVR investigations. Ratings are assigned independently for each recorded channel.
+</Tip>
+
+## Quality rating definitions
+
+<AccordionGroup>
+  <Accordion title="Excellent">
+    Nearly all crew speech is accurately and clearly intelligible. A transcript typically contains only one or two unintelligible words. Any gaps in the recording are attributable to simultaneous cockpit interphone and radio communications masking one another — not to recorder or audio system deficiencies.
+  </Accordion>
+  <Accordion title="Good">
+    Most crew speech is accurately and clearly intelligible. A transcript may contain several unintelligible words or phrases. Gaps in the recording are attributable to minor technical deficiencies, brief interruptions in the recording system, or heavy simultaneous cockpit or radio communications.
+  </Accordion>
+  <Accordion title="Fair">
+    Most crew speech is identifiable. A transcript may contain some unintelligible or broken passages. This rating typically results from cockpit noise partially masking the speech signal, or from minor electrical or mechanical faults in the CVR system that distort or obscure audio information.
+  </Accordion>
+  <Accordion title="Poor">
+    Unconventional means are required to make any portion of crew speech understandable. A transcript may contain only scattered words and phrases, with large unintelligible gaps. This rating typically results from high cockpit noise combined with a low speech signal (poor signal-to-noise ratio), or from significant mechanical or electrical CVR system faults that severely impair the audio.
+  </Accordion>
+  <Accordion title="Unusable">
+    Crew speech is detectable but no meaningful transcript can be produced, regardless of whether conventional or unconventional techniques are used. This rating typically results from near-total mechanical or electrical failure of the CVR system.
+  </Accordion>
+</AccordionGroup>
+
+## MU5735 CVR final results
+
+After connector housing removal, pin repair, and a new connector housing installation, the final Playback32 download of the MU5735 CVR produced **Excellent** quality on all four channels.
+
+| Channel | Source | Final quality rating |
+|---------|--------|---------------------|
+| 1 | Observer audio panel | Excellent |
+| 2 | First Officer audio panel | Excellent |
+| 3 | Captain audio panel | Excellent |
+| 4 | Cockpit area microphone (CAM) | Excellent |
+
+Earlier download attempts before connector repair rated the audio panel channels as **Fair** and the CAM channel as **Poor** — consistent with the damage to chip data lines (causing quantization noise) and address lines (causing stuttering and repetition) that was subsequently discovered and repaired.
+
+See [CVR recovery process](/recorder/cvr-recovery) for the full step-by-step account of how the connector damage was identified and repaired to achieve these results.

@@ -1,0 +1,81 @@
+---
+title: "Cockpit Voice Recorder Recovery Process"
+description: "How NTSB recovered the MU5735 CVR from severe connector damage using physical repair, chip-level downloads, and connector housing replacement."
+---
+
+The CVR storage module arrived at NTSB in severely damaged condition, with bent and separated connector pads, a deformed connector housing, and a damaged ground plane beneath the connector. Initial download attempts produced only unusable audio — digital noise, stuttering, and echo artifacts consistent with damaged data and address lines. Recovery required three progressively more invasive stages: software-level downloads, physical inspection and pin repair, and ultimately full removal and replacement of the connector housing before a clean download became possible.
+
+## Recorder specifications
+
+| Field | Value |
+|-------|-------|
+| Manufacturer / model | Honeywell HFR5-V |
+| Part number | 980-6032-001 |
+| Serial number | CVR-04014 |
+| Channels | 4 (Captain, First Officer, Observer audio panels; CAM) |
+| Narrow-band channel recording | 8 kHz, 2 hours per channel |
+| CAM channel recording | 16 kHz, 3 hours |
+| Crash survivability standard | EUROCAE ED-112A |
+| CSMU recovered | March 23, 2022 |
+
+## Recovery process
+
+<Steps>
+  <Step title="Initial download attempt via Playback32 (failed)">
+    Before the CVR arrived at NTSB, a `.dlu` download file was generated using Honeywell's Playback32 software. NTSB decompressed it at the CVR lab. Decompression produced numerous errors. The four resulting `.wav` files were the correct length and sample rate but were completely unintelligible — stuttering, echo artifacts, and continuous digital noise throughout. The audio data was unusable.
+  </Step>
+  <Step title="Chip-level download via DLDR tool">
+    With the storage module connected in NTSB's HFR5-V reference rack, NTSB used the DLDR engineering tool to read each FLASH chip directly, producing 14 individual binary chip image files — one per chip on the board. A second tool, CHIPS, reassembled the images in correct order into a `.dlu` file. Playback32 then generated four `.wav` files from the assembled data.
+
+    Trial listening showed all four channels contained identifiable audio. The three narrow-band audio panel channels rated **Fair**; the CAM channel rated **Poor**. Digital noise and distortion were present throughout, with audio repetition observed during the accident sequence — consistent with damaged data lines (quantization noise) and damaged address lines (stuttering and repetition).
+  </Step>
+  <Step title="Physical inspection — connector damage identified">
+    The storage module was examined under microscopy. The connector area showed severe damage:
+
+    - Multiple solder pads bent or fully separated from the board
+    - Connector housing plastic deformed — one long edge raised above normal position (pins retracted), the opposite long edge depressed below normal (pins protruding)
+    - Ground plane beneath the connector cut or lifted at multiple points
+
+    The damaged pins corresponded to chip data lines and address lines, directly explaining the observed audio artifacts. X-ray imaging (2D and 3D) confirmed no additional hidden damage in the chip area.
+
+    A modified recovery flex cable was fabricated with pins bent slightly outward to improve contact with the recessed pins in the deformed housing. Multiple additional download attempts were made, all producing results consistent with the initial chip-level download.
+  </Step>
+  <Step title="Connector housing removal — additional damage revealed">
+    Because all downloads continued to yield only Fair/Poor quality despite cable modifications, NTSB decided to remove the connector housing entirely. Using a reference board as a template, NTSB developed the removal technique first on the reference unit.
+
+    After removing the housing on the accident board, additional damage was exposed:
+
+    - Pins forced under the plastic were now visible and found to be severely deformed
+    - Numerous pads and traces loose or fully detached from the board
+    - The central ground plane separated at all but one attachment point
+
+    Some pins had only made contact previously because the connector housing was physically pressing them against the board.
+  </Step>
+  <Step title="Pin repair and new connector housing installed">
+    Loose and separated pins were secured with cyanoacrylate adhesive. Each pin was carefully reshaped to its original position using the reference board as a guide. A strip of Kapton tape was placed between odd-numbered pins and nearby uninsulated vias to prevent shorting.
+
+    A new connector housing was installed over the repaired pins under microscopy — required due to the precise pin-to-slot alignment. The modified flex cable was reconnected and secured with ESD tape, and the board and cable assembly were installed in the NTSB reference rack.
+  </Step>
+  <Step title="Final download via Playback32 — excellent quality on all channels">
+    Playback32 ran without the errors observed in all previous attempts. Decompression completed cleanly, with only minor errors on the wideband (CAM) channel and none on the narrow-band channels — far fewer than any prior download.
+
+    The four resulting `.wav` files were time-ordered from earliest to most recent data. The accident sequence was recorded. All four channels rated **Excellent** by NTSB audio quality standards.
+  </Step>
+</Steps>
+
+## Final channel results
+
+| Channel | Source | Quality | Duration |
+|---------|--------|---------|----------|
+| 1 | Observer audio panel | Excellent | ~120 minutes |
+| 2 | First Officer audio panel | Excellent | ~120 minutes |
+| 3 | Captain audio panel | Excellent | ~120 minutes |
+| 4 | Cockpit area microphone (CAM) | Excellent | ~180 minutes |
+
+## Time drift between CAM and narrow-band channels
+
+Further analysis of the final download revealed a time drift between the 16 kHz CAM channel and the 8 kHz narrow-band crew audio channels. The drift was non-linear and accumulated across the full two-hour crew audio recording. NTSB synchronized the channels by identifying common audio anchors — sounds captured on both CAM and crew channels at the same moment — and using them as reference points. This analysis also revealed occasional brief data gaps in the narrow-band channels, likely corresponding to individual digital audio packets lost during recovery.
+
+<Note>
+  NTSB retained no CVR audio files. All data — including raw chip images, `.dlu` files, `.wav` files, time-corrected and noise-enhanced audio, upsampled crew channel files, analysis session files, and all photographs and microscopy images — was provided in full to the CAAC delegation. No files capable of regenerating the audio remain at NTSB.
+</Note>

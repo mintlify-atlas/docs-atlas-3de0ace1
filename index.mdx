@@ -1,133 +1,67 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
-icon: 'star'
+title: "NTSB FOIA MU5735: Public Archive"
+description: "Public archive of NTSB Freedom of Information Act materials for the China Eastern Airlines Flight MU5735 accident investigation (March 21, 2022)."
 ---
 
-## Setting up
+This archive preserves Freedom of Information Act (FOIA) materials released by the U.S. National Transportation Safety Board (NTSB) in connection with its investigation of China Eastern Airlines Flight MU5735 — a Boeing 737-800 (registration B-1791) that crashed near Wuzhou, China on March 21, 2022. The repository includes official FOIA response documents, raw flight recorder data, and an unofficial Chinese translation of the NTSB recorder report.
 
-Get your documentation site up and running in minutes.
-
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="About Flight MU5735" icon="plane-slash" href="/about-mu5735">
+    Background on the accident, the aircraft, and the scope of the NTSB investigation.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="FOIA Background" icon="file-shield" href="/foia-background">
+    How these documents were obtained and what the FOIA process entails for NTSB investigations.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
+  <Card title="FOIA Documents" icon="folder-open" href="/documents/overview">
+    Browse the NTSB FOIA response reports, response letters, and supplementary materials.
   </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="Flight Recorder Data" icon="wave-sine" href="/recorder/overview">
+    CVR and FDR recovery details and the raw flight data parameters from the final 12 minutes.
   </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## What is in this archive
 
-Everything you need to create world-class documentation.
+The repository contains materials released through FOIA requests directed at the NTSB. The original files were shared publicly by another GitHub user whose repository was subsequently deleted or made private; they have been re-archived here to preserve public access.
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
+<CardGroup cols={3}>
+  <Card title="FOIA Reports" icon="file-pdf" href="/documents/foia-reports">
+    Seven NTSB FOIA response reports (PDF) covering the investigation findings and recorder analysis.
   </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
+  <Card title="Recorder Report" icon="microchip" href="/recorder/overview">
+    Combined CVR and FDR download report (NTSB case DCA22WA102) dated July 1, 2022.
   </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
+  <Card title="FDR Parameters" icon="table" href="/data/fdr-parameters">
+    Over 150 validated flight data parameters from the Boeing 737-800 data frame.
   </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
+  <Card title="Exact Sample Data" icon="chart-line" href="/data/exact-sample">
+    Raw FDR measurements at exact sample timestamps across 150+ parameters.
   </Card>
-</Columns>
+  <Card title="Table Resolution Data" icon="grid" href="/data/table-resolution">
+    FDR data aligned to 1/16-second resolution for time-series analysis.
+  </Card>
+  <Card title="Chinese Translation" icon="language" href="/cn/introduction">
+    Unofficial Chinese translation of the NTSB recorder report, released under CC BY 4.0.
+  </Card>
+</CardGroup>
 
-## Make your content agent ready
+## Navigating this site
 
-Make your docs work for humans and AI agents alike.
+<Steps>
+  <Step title="Start with the accident overview">
+    Read [About Flight MU5735](/about-mu5735) to understand the context of the accident and the NTSB investigation.
+  </Step>
+  <Step title="Review the FOIA documents">
+    Visit [FOIA Documents](/documents/overview) to access the official NTSB response reports and correspondence.
+  </Step>
+  <Step title="Explore the recorder data">
+    The [Flight Recorder Report](/recorder/overview) details how the CVR and FDR were recovered from severe damage, and the [Flight Data](/data/fdr-parameters) section documents the recovered parameters.
+  </Step>
+  <Step title="Access the Chinese translation">
+    The [Chinese Translation](/cn/introduction) section provides an unofficial translation of the NTSB recorder report for Chinese-language readers.
+  </Step>
+</Steps>
 
-<Columns cols={2}>
-  <Card
-    title="Prompt component"
-    icon="robot"
-    href="/agent-ready/prompt"
-  >
-    Embed shareable AI prompts readers can copy or open in Cursor.
-  </Card>
-  <Card
-    title="Visibility"
-    icon="eye"
-    href="/agent-ready/visibility"
-  >
-    Show different content to humans and agents reading your docs.
-  </Card>
-  <Card
-    title="Contextual menu"
-    icon="bolt"
-    href="/agent-ready/contextual"
-  >
-    Give readers one-click access to Claude, ChatGPT, Cursor, and more.
-  </Card>
-  <Card
-    title="AI coding tools"
-    icon="wand-magic-sparkles"
-    href="/ai-tools/claude-code"
-  >
-    Set up Claude Code, Cursor, or Windsurf with Mintlify's skill.
-  </Card>
-</Columns>
-
-## Need inspiration?
-
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+<Note>
+  All materials in this archive are either works of the U.S. government (public domain) or released under open licenses. The unofficial Chinese translation is released under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
+</Note>

@@ -1,0 +1,74 @@
+---
+title: "ExactSample.csv: Raw FDR Data at Exact Timestamps"
+description: "198,035-row sparse CSV of Boeing 737-800 FDR data at exact sample timestamps for NTSB case DCA22WA102 — preserves original recording fidelity."
+---
+
+`ExactSample.csv` is the closest representation of what the FDR actually recorded. Each row corresponds to a single parameter update at the precise moment the flight data recorder sampled that parameter, so most cells in any given row are empty — only the column for the parameter that changed at that exact timestamp contains a value. This sparse format preserves the original sample fidelity of the B737-800 data frame and is the primary source of record for NTSB case DCA22WA102 (China Eastern B-1791, Wuzhou, China, 03/21/2022).
+
+If you need evenly-spaced rows for plotting or time-series analysis, use [`TableResolution.csv`](/data/table-resolution) instead, which resamples all parameters to a regular 1/16-second grid.
+
+## File structure
+
+The file contains a six-line metadata header followed by a `DATA` marker, then four header rows that define the column layout before the data begins.
+
+```csv ExactSample.csv header
+NTSB DCA22WA102, Attachment (Enter Attachment Number) to (Enter Report Name)
+Operator: China Eastern
+Vehicle ID/Registration: B-1791
+Source of Data: Boeing 737-800
+Date of Event: 03/21/22
+Location: Wuzhou, China
+HISTORY
+Project Title: B737-800_CES_DCA22WA102_GuangzhouChina_FlightIntoTerrain
+Scratch Version: 007-ParameterValidation
+File Created on 04/14/2022 03:35 PM
+DATA
+Time,115 VAC Stdby Bus Sect 2,115 VAC XFR Bus 2,...,Absolute Roll Rate,Accel Lat,...
+(sec),(),(),(),(),(),(),(),(),(),(),(),(deg/s),(g),(g),(g),...
+,"%N(0.0:0.0=""OFF"",1.0:1.0=""ON"")",...,NUMBER,NUMBER,...
+288200.6152,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1008,...
+```
+
+The four header rows are:
+
+1. **Column names** — human-readable parameter names (e.g., `Eng1 N2 Actual`, `Aileron-L`).
+2. **Units** — engineering units for each column (e.g., `(sec)`, `(deg)`, `(%RPM)`, `(g)`). Dimensionless discrete parameters show `()`.
+3. **Encoding key** — for discrete parameters, maps numeric values to state labels (e.g., `0.0 = RUN`, `1.0 = CUTOFF`). Continuous parameters show `NUMBER`.
+4. **First data row** — sparse; only the cell(s) that changed at that timestamp are populated.
+
+## Data summary
+
+| Property | Value |
+|---|---|
+| Data rows | 198,035 |
+| Columns (parameters) | ~150 |
+| Time range start | ~288,200 seconds (elapsed from aircraft power-up) |
+| Time resolution | Variable — exact FDR sample instants |
+| Row density | Sparse — typically 1 non-empty value per row |
+
+## When to use ExactSample vs TableResolution
+
+Use `ExactSample.csv` when you need the highest temporal fidelity — for example, to determine the precise sample time of a discrete event such as a switch actuation. The exact timestamps make it possible to distinguish sub-frame timing differences between parameters.
+
+Use [`TableResolution.csv`](/data/table-resolution) when you want to load the data directly into a plotting tool, perform arithmetic across columns at the same time step, or align FDR data with external time references. Its regular 1/16-second grid eliminates the need for resampling in your own code.
+
+<Tip>
+  When loading `ExactSample.csv` in pandas, skip the metadata header and pass explicit dtype handling for the sparse columns:
+
+  ```python
+  import pandas as pd
+
+  df = pd.read_csv(
+      "ExactSample.csv",
+      skiprows=13,        # skip 10 metadata lines + DATA marker + 3 sub-header rows (units, encoding, blank)
+      header=0,
+      low_memory=False,   # avoid mixed-type warnings on sparse columns
+  )
+  ```
+
+  The `Time` column contains float-valued seconds. All other columns are either float or string depending on whether the parameter is continuous or discrete. Parse the encoding row (CSV line 14) separately if you need to map numeric discrete values back to their state labels.
+</Tip>
+
+## Download
+
+The full file is available on GitHub: [ExactSample.csv](https://github.com/wrongly-cuddly-obsession/NTSB_FOIA_MU5735/blob/main/ExactSample.csv)

@@ -1,0 +1,193 @@
+---
+title: "Validated FDR Parameters: Boeing 737-800 Data Frame"
+description: "All 150+ validated flight data recorder parameters from the B737-800 data frame, organized by system category with units and scale factor notes."
+---
+
+The Boeing 737-800 flight data recorder (FDR) aboard China Eastern flight MU5735 (NTSB case DCA22WA102, aircraft B-1791) captured over 150 discrete parameters spanning electrical buses, inertial sensors, flight controls, engines, autopilot modes, and cockpit inputs. NTSB analysts validated each parameter against the aircraft's data frame layout using CIDER (version Scratch 007-ParameterValidation), verifying scale factors and biases to produce the two derived datasets — `ExactSample.csv` and `TableResolution.csv` — released under FOIA.
+
+The sections below list every validated parameter by category, with its engineering unit where applicable.
+
+<Note>
+  All parameters were validated against the Boeing 737-800 airframe data frame definition. Scale factors and biases were individually checked before the data was exported from CIDER. Discrete (enumerated) parameters such as switch positions are encoded as numeric values in the CSV files; the raw encoding key (e.g., `0.0 = RUN`, `1.0 = CUTOFF`) is preserved in the header rows of both CSV files.
+</Note>
+
+<Note>
+  FLASH chip U2 on the FDR storage board was cracked through its silicon die and could not be read. This causes periodic data gaps of approximately 1.3 seconds in the raw FDR recording. NTSB analysts manually corrected the affected portion covering the final 12 minutes of recorded flight; the corrected data is what appears in `ExactSample.csv` and `TableResolution.csv`.
+</Note>
+
+<AccordionGroup>
+  <Accordion title="Electrical systems">
+    Parameters monitoring AC and DC power bus availability across the aircraft's electrical architecture.
+
+    | Parameter | Unit |
+    |---|---|
+    | 115 VAC Stdby Bus Sect 2 | — (ON/OFF) |
+    | 115 VAC XFR Bus 2 | — (ON/OFF) |
+    | 115VAC UNAVAIL TO L IGN 1 | — (NORMAL/UNAVAIL) |
+    | 115VAC UNAVAIL TO L IGN 2 | — (NORMAL/UNAVAIL) |
+    | 115VAC UNAVAIL TO R IGN 1 | — (NORMAL/UNAVAIL) |
+    | 115VAC UNAVAIL TO R IGN 2 | — (NORMAL/UNAVAIL) |
+    | 28 VDC BAT BUS SECT 2 | — (ON/OFF) |
+    | 28 VDC BUS 1 SECT 2 | — (ON/OFF) |
+    | 28 VDC BUS 2 SECT 3 | — (ON/OFF) |
+    | 28 VDC HOT BAT BUS | — (ON/OFF) |
+    | 28 VDC STDBY BUS SECT 2 | — (ON/OFF) |
+    | 28 VDC SW HOT BAT BUS S1 | — (ON/OFF) |
+  </Accordion>
+
+  <Accordion title="Inertial / accelerations">
+    Body-axis angular rates and linear accelerations from the inertial reference system.
+
+    | Parameter | Unit |
+    |---|---|
+    | Absolute Roll Rate | deg/s |
+    | Accel Lat | g |
+    | Accel Long | g |
+    | Accel Vert | g |
+  </Accordion>
+
+  <Accordion title="Navigation & position">
+    Altitude, airspeed, heading, groundspeed, and drift angle parameters from multiple independent sources.
+
+    | Parameter | Unit |
+    |---|---|
+    | Altitude Press | ft |
+    | Altitude Radio DEU | ft |
+    | Altitude Radio-1 | ft |
+    | Altitude Radio-2 | ft |
+    | Alt 1 Baro Corr | ft |
+    | Alt 2 Baro Corr | ft |
+    | Alt 3 Baro Corr | ft |
+    | Alt 4 Baro Corr | ft |
+    | Alt Baro Corr Combine | ft |
+    | Active Altitude Ref - FCC | — (MCP Alt/FMC Alt) |
+    | Airspeed Comp | kts |
+    | Airspeed Max Allowable | kts |
+    | Airspeed Target FCC | kts |
+    | High Speed Buffet Speed | kts |
+    | Ground Spd | kts |
+    | Groundspeed FMC | kts |
+    | Groundspeed Disp -L | kts |
+    | Heading | deg |
+    | Heading Selected FCC | deg |
+    | Drift Angle -FMC | deg |
+    | Air Gnd On Gnd | — (Air/Grnd) |
+    | AIR GROUND - SMYDC-2 | — (AIR/GND) |
+    | Air-Ground | — (Air/Gnd) |
+  </Accordion>
+
+  <Accordion title="Flight controls & surfaces">
+    Positions and commands for the primary control surfaces (aileron, elevator) and high-lift devices.
+
+    | Parameter | Unit |
+    |---|---|
+    | Aileron-L | deg |
+    | Aileron-R | deg |
+    | Aileron Actuator Pos-L | deg |
+    | Aileron Quadrant Pos | deg |
+    | Aileron Roll Cmd-L | deg |
+    | Elevator-L | deg |
+    | Elevator-R | deg |
+    | Elevator Actuator Pos-L | deg |
+    | Elevator Pitch Cmd-L | deg |
+    | Flap Handle Pos | deg |
+    | Flap-L | deg |
+    | Flap-R | deg |
+  </Accordion>
+
+  <Accordion title="Engine parameters">
+    Full engine health and performance parameters for both CFM56 engines.
+
+    | Parameter | Unit |
+    |---|---|
+    | Eng1 N1 | %RPM |
+    | Eng1 N1 Cmd | %RPM |
+    | Eng1 N1 Ref | %RPM |
+    | Eng1 N1 Tach | %RPM |
+    | Eng1 N2 Actual | %RPM |
+    | Eng1 N2 Tach | %RPM |
+    | Eng1 EGT | degC |
+    | Eng1 Fuel Flow | pph |
+    | Eng1 FMV Pos | % |
+    | Eng1 FMC N1 Bug Drive | %RPM |
+    | Eng1 FMC N1 Target | %RPM |
+    | Eng1 Oil Press | psi |
+    | Eng1 Oil Qty | qt |
+    | Eng1 Oil Temp | degC |
+    | Eng1 TRA | deg |
+    | Eng1 Cutoff SW | — (RUN/CUTOFF) |
+    | Eng1 Fire | — (NO FIRE/FIRE) |
+    | Eng2 N1 | %RPM |
+    | Eng2 N1 Cmd | %RPM |
+    | Eng2 N1 Ref | %RPM |
+    | Eng2 N1 Tach | %RPM |
+    | Eng2 N2 Actual | %RPM |
+    | Eng2 N2 Tach | %RPM |
+    | Eng2 EGT | degC |
+    | Eng2 Fuel Flow | pph |
+    | Eng2 FMV Pos | % |
+    | Eng2 FMC N1 Bug Drive | %RPM |
+    | Eng2 FMC N1 Target | %RPM |
+    | Eng2 Oil Press | psi |
+    | Eng2 Oil Qty | qt |
+    | Eng2 Oil Temp | degC |
+    | Eng2 TRA | deg |
+    | Eng2 Cutoff SW | — (RUN/CUTOFF) |
+    | Eng2 Fire | — (NO FIRE/FIRE) |
+    | APU N1 | %RPM |
+    | APU On | — |
+    | APU Ready To Load | — |
+  </Accordion>
+
+  <Accordion title="Autopilot & FCC modes">
+    Flight control computer (FCC) engagement states, autopilot mode annunciations, and autothrottle status.
+
+    | Parameter | Unit |
+    |---|---|
+    | CMD A - FCC | — (SELECTED/not) |
+    | CMD A Light - FCC | — (On/Off) |
+    | CMD B Light - FCC | — (On/Off) |
+    | AP Off - FCC | — |
+    | AP-1 Warn | — |
+    | AP-2 Warn | — |
+    | ALT ACQ Engaged - FCC | — (Eng/Not Eng) |
+    | ALT HOLD Engaged - FCC | — |
+    | GS Engaged - FCC | — |
+    | G/S Dev Warn - FCC | — (Warn/Not Warn) |
+    | GP Engage - FCC | — (Engage/Not Engage) |
+    | HDG SEL Light - FCC | — |
+    | HDG SELECT - FCC | — |
+    | FAC Engage - FCC | — (Engage/Not Engage) |
+    | FD-A Switch - FCC | — (SW On/SW Off) |
+    | FD-B Switch - FCC | — (SW On/SW Off) |
+    | FCC In Command of MACH Trim - R | — (SELECT/NOT SEL) |
+    | FCC-L In Command of MACH Trim | — (SELECT/NOT SEL) |
+    | AT FMC SPD Engaged | — (FMC Spd/Not FMC Spd) |
+  </Accordion>
+
+  <Accordion title="Cockpit control forces & positions">
+    Pilot-applied forces and resulting positions on the control column and control wheel, for both left and right seats.
+
+    | Parameter | Unit |
+    |---|---|
+    | Ctrl Col Force Pitch CWS | lb |
+    | Ctrl Col Force Pitch CWS Foreign | lb |
+    | Ctrl Col Force Pitch CWS Local | lb |
+    | Ctrl Col Pos-L | deg |
+    | Ctrl Col Pos-R | deg |
+    | Ctrl Whl Force Roll CWS | lb |
+    | Ctrl Whl Pos-L | deg |
+    | Ctrl Whl Pos-R | deg |
+  </Accordion>
+
+  <Accordion title="FMC / navigation management">
+    Flight Management Computer selected targets and validity flag.
+
+    | Parameter | Unit |
+    |---|---|
+    | FMC Selected Airspeed | kts |
+    | FMC Selected Altitude | ft |
+    | FMC Selected Mach | mach |
+    | FMC Valid | — (FMC Valid/Not) |
+  </Accordion>
+</AccordionGroup>

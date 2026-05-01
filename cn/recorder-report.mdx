@@ -1,0 +1,137 @@
+---
+title: "记录器报告中文译文（DCA22WA102）"
+description: "Unofficial Chinese translation of the NTSB DCA22WA102 cockpit voice and flight data recorder combined download report, dated July 1, 2022."
+---
+
+This page presents an unofficial Chinese translation of the NTSB DCA22WA102 Cockpit Voice and Flight Data Recorder Combined Download Report, dated July 1, 2022. The translation is organized to follow the structure of the original report. Each section below includes the Chinese heading, a brief English summary, and representative excerpts from the translated text.
+
+<Warning>
+  This is an unofficial translation. The original English report published by the NTSB is the only authoritative source. The translator makes no representations regarding accuracy and assumes no responsibility for any consequences arising from use of this translation.
+</Warning>
+
+<Card title="Complete Chinese translation on GitHub" icon="github" href="https://github.com/wrongly-cuddly-obsession/NTSB_FOIA_MU5735/blob/main/MU5735_NTSB_Recorder_Report_CN/MU5735_NTSB_Recorder_Report_Chinese.md">
+  View the full unabridged Chinese translation in the source repository.
+</Card>
+
+<AccordionGroup>
+
+  <Accordion title="A. 事故情况（Accident）">
+    This section records the basic facts of the accident: location, date, time (UTC), and aircraft identification.
+
+    > 地点： 中国梧州
+    > 日期： 2022年3月21日
+    > 时间： 06:30 UTC
+    > 飞机： 波音 737-800，中国东方航空，注册号 B-1791
+  </Accordion>
+
+  <Accordion title="B. 记录器数据恢复组（Data Recovery Group）">
+    This section lists the report author and all group members from the NTSB and the Civil Aviation Administration of China (CAAC) who participated in the data recovery effort.
+
+    报告作者：Charles Cates，机械工程师 / 记录器专家，美国国家运输安全委员会（NTSB）
+
+    数据恢复工作组由CAAC和NTSB的代表共同组成，包括CAAC首席飞行员、事故调查负责人、调查员及多名实验室工程师，以及NTSB的电气工程师和记录器专家。
+  </Accordion>
+
+  <Accordion title="C. 调查细节（Details of the Investigation）">
+    This section describes the formation of the data recovery working group and provides the manufacturer, part number, and serial number for each recovered recorder storage module.
+
+    数据恢复工作组于2022年3月28日成立，由中国民用航空局（CAAC）和美国国家运输安全委员会（NTSB）的代表组成。NTSB飞行记录器部门接收了驾驶舱语音记录器（CVR）和飞行数据记录器（FDR）的存储模块。
+
+    Two recorder modules were provided to the NTSB:
+    - CVR: Honeywell HFR5-V, part no. 980-6032-001, serial no. CVR-04014
+    - FDR: Honeywell HFR5-D, part no. 980-4750-009, serial no. FDR-02952
+  </Accordion>
+
+  <Accordion title="D. 数据恢复（Data Recovery）">
+    This section explains the systematic process used to recover data from severely damaged flight recorder hardware, including assessment, repair, and data reading procedures.
+
+    对受损飞行数据记录器的数据恢复是一个系统化过程，包括评估、修复和数据读取。首要任务是在最大程度避免数据丢失或损坏的前提下恢复存储数据。
+
+    严重受损的硬件尤其具有挑战性，因为在通电时可能发生短路或对电路板组件造成进一步损坏，从而导致数据丢失。
+  </Accordion>
+
+  <Accordion title="1.0 HFR5-V 驾驶舱语音记录器说明（CVR Description）">
+    This section describes the Honeywell HFR5-V CVR's capabilities: four audio channels, solid-state storage, two-hour capacity for audio panel channels, three-hour capacity for the cockpit area microphone (CAM) channel, and compliance with EUROCAE ED-112A crashworthiness standards.
+
+    Honeywell HFR5-V型驾驶舱语音记录器可记录四个通道的高质量音频信息，这些音频来源包括机长音频面板、副驾驶音频面板、驾驶舱观察员音频面板以及驾驶舱区域麦克风（CAM）。数字录音数据存储在固态存储模块中。
+  </Accordion>
+
+  <Accordion title="1.1 HFR5-V 损伤情况（CVR Damage）">
+    This section describes the physical damage to the CVR crash-survivable memory unit (CSMU), including connector pin damage, deformed plastic housing, and ground layer separation discovered during initial microscopic inspection at NTSB.
+
+    据报告，该CVR的抗坠毁存储单元（CSMU）于2022年3月23日从飞机残骸中被回收。记录器因撞击力严重受损。CSMU在北京的中国民用航空局（CAAC）设施内被拆解，存储模块被取出。
+
+    进一步检查还发现连接器本体的塑料部分发生了轻微变形。电路板一侧的长边高于其正常位置，该边缘的引脚缩入连接器壳体内部。
+  </Accordion>
+
+  <Accordion title="1.2 HFR5-V 数据恢复（CVR Recovery）">
+    This section details the multi-stage recovery process: initial download attempts, microscopic examination, connector housing removal, pin repair, re-seating with a modified flex cable, and final successful download yielding four audio channels all rated "Excellent" by NTSB standards.
+
+    CVR存储模块被送至NTSB进行显微检查。初步检查发现，该设备连接器区域存在严重损伤。用于将连接器固定到电路板并提供通往数据芯片电信号路径的多个焊盘被发现弯曲或完全从电路板上脱落。
+
+    将生成的`.wav`文件导入CVR监听室进行试听。文件按时间顺序排列，从最早数据到最近（事故）数据。事故过程已被记录，且根据NTSB音频质量评级标准，所有通道的音频质量均为"优秀（Excellent）"。
+  </Accordion>
+
+  <Accordion title="1.3 音频记录说明（Audio Recording Description）">
+    This section presents a summary table of the final CVR download, listing the quality rating and duration for each of the four audio channels.
+
+    最终下载文件中各通道的音频质量和时长见表1。所有四个通道（驾驶舱观察员音频面板、副驾驶音频面板、机长音频面板，以及驾驶舱区域麦克风）的质量均为"优秀"，时长分别约为120分钟或180分钟（CAM通道）。
+  </Accordion>
+
+  <Accordion title="1.4 提供给CAAC的CVR数据（CVR Data Provided to CAAC）">
+    This section lists all CVR data and files delivered to the CAAC delegation, including raw downloads, chip images, `.dlu` files, `.wav` files, time-corrected audio, noise-reduced audio, and all photographs and microscopy images captured during recovery. The NTSB retained no CVR audio files.
+
+    除上述照片、扫描图像和显微图像外，NTSB未保留任何提供给CAAC代表团的文件。NTSB未保留任何CVR音频文件，也未保留任何可用于生成音频文件的原始或中间下载数据。
+  </Accordion>
+
+  <Accordion title="2.0 HFR5-D 飞行数据记录器说明（FDR Description）">
+    This section describes the Honeywell HFR5-D FDR: solid-state FLASH storage, ARINC 573/717/747 format, minimum 25 hours of recording capacity, 512 twelve-bit words per second, and compliance with EUROCAE ED-112A crashworthiness standards.
+
+    Honeywell HFR5-D型飞行数据记录器以固态FLASH存储器为记录介质，以数字格式记录飞机飞行数据。HFR5-D可接收ARINC573/717/747格式的数据，并可记录至少25小时的飞行数据。其配置为每秒记录512个12位字的数字信息。
+  </Accordion>
+
+  <Accordion title="2.1 HFR5-D 损伤情况（FDR Damage）">
+    This section reports that the FDR CSMU was recovered on March 27, 2022, and that a CAAC download attempt was unsuccessful prior to delivery to the NTSB.
+
+    据报告，该FDR的抗坠毁存储单元（CSMU）于2022年3月27日从飞机残骸中被回收。记录器因撞击力严重受损。据报告，CAAC曾使用替代FDR机架尝试进行一次数据下载，但未成功。
+  </Accordion>
+
+  <Accordion title="2.2 HFR5-D 数据恢复（FDR Recovery）">
+    This section describes the FDR recovery process in detail, including chip-level cracking found on FLASH chip U2, the development of a chip-off procedure using a Finetech FinePlacer station, individual chip reads with a Xeltek SP-6100 programmer, the inability to recover data from U2 due to internal silicon damage, reconstruction of the FDR data stream using a placeholder file, and manual time-correction of the final 12 minutes of flight data. It also identifies the likely cause of FDR power loss: both engine fuel cutoff switches moved to the cutoff position during cruise at 29,000 feet.
+
+    在发现芯片级裂纹以及使用DLDR芯片级恢复工具下载结果的表现后，团队对采用其他常规下载方法获取数据的完整性产生了担忧。
+
+    FDR数据在飞机仍处于飞行状态时结束。数据终止时飞机处于约26000英尺的下降过程中，未记录后续下降及最终事故过程。进一步分析发动机N2转速下降的原因发现，在29000英尺巡航期间，两台发动机的燃油开关从"运行（run）"位置移动至"切断（cutoff）"位置，随后发动机转速下降。
+  </Accordion>
+
+  <Accordion title="2.3 提供给CAAC的FDR数据（FDR Data Provided to CAAC）">
+    This section lists all FDR data and files delivered to the CAAC delegation, including raw chip images, `.dlu` files, unpacked binary files, time-corrected data, validated parameter plots, and all recovery images. Unlike the CVR data, the NTSB retained copies of the FDR files to assist CAAC in reconstructing the flight history during final report preparation.
+
+    NTSB保留了上述FDR文件的副本，以便在最终报告编制过程中协助CAAC还原飞行历史和事故过程。
+
+    提交人：Charles Cates，机械工程师 / 记录器专家
+  </Accordion>
+
+  <Accordion title="2.3.1 FDR 数据图（FDR Plots）">
+    This section contains three figures produced from the recovered FDR data: aircraft basic parameters for the final 90 seconds of recording, flight control and input positions for the final 90 seconds, and control forces recorded from the onset of the abnormal flight through to the end of the recording.
+  </Accordion>
+
+  <Accordion title="附录A. 音频质量评级标准（CVR Quality Rating Scale）">
+    This appendix defines the five NTSB audio quality ratings applied to CVR recordings. Reproduced here in full from the Chinese translation:
+
+    - **优秀（Excellent Quality）**：几乎所有机组对话均可被准确且清晰地理解。生成的记录文本中通常仅有一到两个词无法辨识。
+    - **良好（Good Quality）**：大部分机组对话可被准确且清晰地理解。生成的记录文本中可能包含若干无法辨识的词语或短语。
+    - **中等（Fair Quality）**：大多数机组对话可以辨识。生成的记录文本中可能包含部分对话无法辨识或出现断裂的情况。
+    - **较差（Poor Quality）**：需要采用非常规手段才能使部分机组对话可被理解。生成的记录文本可能包含零散的词组和对话，并可能存在大段缺失或无法辨识的内容。
+    - **不可用（Unusable）**：可以辨认出存在机组对话，但无论采用常规还是非常规手段，均无法形成有意义的对话记录文本。
+  </Accordion>
+
+  <Accordion title="附录B. 已验证参数（Validated Parameters）">
+    This appendix lists the approximately 150 validated FDR parameters out of more than 1,000 recorded in the Boeing data frame. The Chinese translation notes that this section has not yet been translated.
+
+    > *说明：本节尚未翻译*
+
+    For the full parameter list, see the [complete Chinese translation on GitHub](https://github.com/wrongly-cuddly-obsession/NTSB_FOIA_MU5735/blob/main/MU5735_NTSB_Recorder_Report_CN/MU5735_NTSB_Recorder_Report_Chinese.md).
+  </Accordion>
+
+</AccordionGroup>

@@ -1,0 +1,70 @@
+---
+title: "TableResolution.csv: FDR Data at 1/16-Second Intervals"
+description: "12,414-row regularly-sampled FDR dataset for NTSB DCA22WA102, resampled to a uniform 0.0625-second grid — ready for direct import into plotting tools."
+---
+
+`TableResolution.csv` presents the same Boeing 737-800 FDR parameters as [`ExactSample.csv`](/data/exact-sample) but resampled onto a uniform time grid with one row every 1/16 second (0.0625 s). Each parameter holds its last known value until a new sample arrives, so every row in this file is fully populated across all ~150 columns. This makes the file straightforward to load into time-series analysis tools without writing your own resampling logic.
+
+The file covers approximately 776 seconds (~12.9 minutes) of recorded flight for China Eastern B-1791 on 03/21/2022 (NTSB case DCA22WA102, Wuzhou, China), from the beginning of the FDR data segment through the point where engine cutoff caused FDR power loss at approximately 26,000 ft.
+
+## File structure
+
+The file shares the same six-line metadata header and column layout as `ExactSample.csv`. The key difference is in the data rows: every time step is 0.0625 seconds apart, and parameter values are carried forward from the previous row when no new sample is available.
+
+```csv TableResolution.csv sample rows
+...
+DATA
+Time,115 VAC Stdby Bus Sect 2,...,Accel Lat,Accel Long,Accel Vert,...
+(sec),(),(),(deg/s),(g),(g),(g),...
+...
+288200.0000,,,,,,,,,,,,,,1.0000,1.0000,5.9996,,,-0.04,,-1.95,1.95,...
+288200.0625,,,,,,,,,,,,,-0.0625,1.0000,1.0000,5.9996,,,,,,,,,,511.75,...
+288200.1250,,,,,,,,ON,ON,ON,,ON,,1.0000,1.0000,5.9996,,-0.04,,-0.06,...
+```
+
+## Data summary
+
+| Property | Value |
+|---|---|
+| Data rows | 12,414 |
+| Columns (parameters) | ~150 |
+| Time range start | 288,200.0000 seconds |
+| Time step | 0.0625 s (1/16 second) |
+| Total duration covered | ~776 s (~12.9 min) |
+| Row density | Dense — all parameters present at every time step |
+
+## Notable event in the data
+
+At approximately 29,000 ft during cruise, both `Eng1 Cutoff SW` and `Eng2 Cutoff SW` transition from `RUN` to `CUTOFF`. This caused N2 on both engines to drop below the generator cut-in threshold, which removed power from the FDR bus. Recording ends mid-descent at approximately 26,000 ft. The cutoff event and the descent are fully captured in this dataset.
+
+<Note>
+  The missing U2 memory chip causes periodic ~1.3-second data gaps in the raw FDR recording. In `TableResolution.csv` these gaps appear as runs of all-empty rows (the last-known-value carry-forward produces no change, so the cells are blank). NTSB analysts manually corrected the affected portion covering the final 12 minutes of recorded flight; the corrected segment is the data you see in this file.
+</Note>
+
+<Tip>
+  This file is suitable for direct import into matplotlib, Excel, MATLAB, or any tool that expects a regular time axis. For example, in Python:
+
+  ```python
+  import pandas as pd
+  import matplotlib.pyplot as plt
+
+  df = pd.read_csv(
+      "TableResolution.csv",
+      skiprows=13,       # skip metadata + DATA marker + 3 sub-header rows
+      header=0,
+      low_memory=False,
+  )
+  df["Time"] = pd.to_numeric(df["Time"], errors="coerce")
+
+  plt.plot(df["Time"], pd.to_numeric(df["Altitude Press"], errors="coerce"))
+  plt.xlabel("Time (sec)")
+  plt.ylabel("Pressure altitude (ft)")
+  plt.show()
+  ```
+
+  Because the time steps are uniform you can also compute derivatives directly (e.g., vertical speed from altitude) without interpolation.
+</Tip>
+
+## Download
+
+The full file is available on GitHub: [TableResolution.csv](https://github.com/wrongly-cuddly-obsession/NTSB_FOIA_MU5735/blob/main/TableResolution.csv)

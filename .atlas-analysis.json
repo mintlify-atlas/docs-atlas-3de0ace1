@@ -1,0 +1,85 @@
+{
+  "projectType": "general",
+  "projectName": "NTSB FOIA MU5735",
+  "projectDescription": "A public archive of NTSB Freedom of Information Act materials related to the China Eastern Airlines Flight MU5735 accident investigation, including official FOIA documents, flight recorder data, and an unofficial Chinese translation of the NTSB recorder report.",
+  "theme": "willow",
+  "primaryColor": "#1B3A5C",
+  "lightColor": "#4A7FB5",
+  "darkColor": "#0D1F33",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Overview",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "introduction",
+              "about-mu5735",
+              "foia-background"
+            ]
+          },
+          {
+            "group": "FOIA Documents",
+            "pages": [
+              "documents/overview",
+              "documents/foia-reports",
+              "documents/response-letters"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Recorder Data",
+        "groups": [
+          {
+            "group": "Flight Recorder Report",
+            "pages": [
+              "recorder/overview",
+              "recorder/cvr-recovery",
+              "recorder/fdr-recovery",
+              "recorder/audio-quality"
+            ]
+          },
+          {
+            "group": "Flight Data",
+            "pages": [
+              "data/fdr-parameters",
+              "data/exact-sample",
+              "data/table-resolution"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Chinese Translation",
+        "groups": [
+          {
+            "group": "译文说明",
+            "pages": [
+              "cn/introduction",
+              "cn/recorder-report"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "NTSB FOIA documents related to China Eastern Airlines Flight MU5735 (March 21, 2022)",
+    "Cockpit Voice Recorder (CVR) and Flight Data Recorder (FDR) recovery report",
+    "Raw FDR data with 150+ validated parameters from the final 12 minutes of flight",
+    "Unofficial Chinese translation of the NTSB recorder report (CC BY 4.0)",
+    "FOIA response letters and supplementary materials",
+    "Publicly archived materials originally shared under a deleted GitHub repository"
+  ],
+  "publicApiSurface": [
+    "ExactSample.csv — FDR data at exact sample timestamps with 150+ parameters",
+    "TableResolution.csv — FDR data at 1/16-second resolution with validated parameters",
+    "MU5735_NTSB_Recorder_Report_Chinese.md — Unofficial Chinese translation of NTSB recorder report",
+    "report.pdf / report (2-6).pdf — NTSB FOIA response reports",
+    "rzcommu.pdf — Supplementary communication document",
+    "res_letter_1.png / res_letter_2.png — FOIA response letters",
+    "12minute.upk — 12-minute corrected FDR data package"
+  ]
+}
